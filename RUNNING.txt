@@ -1,0 +1,125 @@
+1. Download the Yelp data from Kaggle:
+Download the dataset from https://www.kaggle.com/yelp-dataset/yelp-dataset
+
+2. Load the dataset into data warehouse:
+Prerequisite: Redshift
+Create a Redshift cluster on AWS, and use a query editor to run all the code in   'create_sql.sql'.
+
+3. Data Cleaning and Analyze
+Prerequisite:
+  python                          >=3.7
+  pyspark                         3.1.2
+  matplotlib                      3.4.3
+  numpy                           1.20.3
+  Pillow                            8.4.0
+  py4j                               0.10.9
+  pandas                           1.1.5
+
+General Format:
+spark-submit code.py input1 (input2) output
+
+(1) Cleaning business data:
+spark-submit business_cleaning.py [source data path] [cleaned data path]
+
+(2) Cleaning users data:
+spark-submit user_cleaning_script.py [original_user_dataset]
+
+(3) Cleaning review data for LFM:
+spark-submit Review_Cleaning.py [source review data path] [cleaned data path]
+
+
+For each specific problem:
+(1) The numbers of reviews in each state:
+spark-submit reviews_state.py [business data]  [review_data] [output]
+
+(2) Which business has the most absolute/ relative good/bad reviews:
+spark-submit reviews_goodness.py [business data]  [review_data] [output]
+
+(3) How attributes affect businesses’ stars:
+spark-submit attributes.py [business data]  [review_data] [output]
+
+
+
+
+(4) What is the ratio of the following user group on review and tips? 
+(5)What is the extent of reputations for user groups who write both tips and reviews, and for user groups who only write reviews or tips ?
+(6) What was star distribution of  the Top 100 Business in a specific region(Vancouver):
+
+For question 4,5,6 the running command is 
+spark-submit main.py [business data path]  [users data path] [review data_path] [tips datapath]  [OutputForQ6] [OutPutForQ5] [OutPutForQ6]
+
+(7) The differences of reviews and stars of restaurants from 2008 to 2020:
+spark-submit High_Rate_Restaurant.py [business data path] [review data path] [output path]
+
+
+(8) What categories are most popular:
+spark-submit statement89_attributes.py [business_data] [output]
+
+(9) Regarding the business sides, what categories are most valued by the business, which could reflect some trending categories:
+spark-submit statement7_review_occurance.py [business_data] [review_data] [output from last statement] [output]
+
+(10) Where are those restaurants rated with 5 stars located:
+spark-submit statement6_count5star.py [business_data] [output]
+
+(11) Use attributes to predict businesses’ stars:
+spark-submit star_prediction.py [business data] [output]
+
+(12) Predict review attitude:
+In order to run the code you will need to install the following packages:
+scikit-learn:
+conda install scikit-learn 
+pandas:
+conda install pandas
+pytorch:
+https://pytorch.org/get-started/locally/.
+If you do not have cuda GPU on your machine, then set cuda=None.
+
+Or you could run in colab
+The overall python script with lstm architecture shown in train_final_classifier.py. We also provide alternative solution settings such as word2vec, fasttext.
+
+To run it, execute the commands as follows:
+
+import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+python train_final_classifier.py.
+
+(12) Streaming  review data process
+Install pyspark first.
+You need to open two terminals, one needs to run:  python3 How_User_Rate_Restaurant.py [review data path], the other terminal run: nc -lk 9009. After you see “Model Trained....Waiting for the Data!”  in the first one, you can copy some new reviews to the second terminal with the “NEW_REVIEW” at the beginning of every new review to get the stars.
+
+
+(13) Recommend potential users for restaurants:
+
+1) You need to change path in the code below to get the dataset:
+​​data_file = open(‘path’)
+I suggest you just use the one json file from Review_Data_LFM, which already has around 180000 lines. If you wanna run all the Json files in one time which may need lots of resources for your computer, but if you still wanna do it, run:
+python3 CombineJson.py 
+to merge all the json files which were processed by pyspark. Before you run it, you need to change the path in following code to your own path: 
+path_results, path_merges = "./Review", "./Review_Cleaning"
+
+2) Then you can just run the code on colab or jupyter notebook to make tests, and change the second parameter in main function to make recommendation for  the certain restaurant, like
+i = recommend(frame, "ak0TdVmGKo4pwqdJSTLwWw", p, q).
+
+
+4. Load the cleaned data into data warehouse:
+Prerequisite: Redshift
+On redshift cluster, use query editor to run all the code in create_analyzed_sql.sql
+
+5. Visualization
+Prerequisite:
+Docker: Download and install from https://www.docker.com/products/docker-desktop
+  
+Superset: Install the superset by following the instructions on https://superset.apache.org/docs/installation/installing-superset-using-docker-compose
+
+Redshift: Use it to connect Superset
+https://superset.apache.org/docs/databases/redshift
+
+All of the visualizations are created by superset GUI functions. You can follow the instructions above to connect the database, and then use superset GUI on localhost:8088 to create datasets and charts to do visualization.
+
+
+
+
+
