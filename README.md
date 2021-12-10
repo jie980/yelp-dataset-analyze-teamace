@@ -1,7 +1,5 @@
 # Overview and mark guideline
 
-# Overview and mark guideline
-
 This project is about a deep dive analysis into the public  [yelp review dataset](https://www.kaggle.com/yelp-dataset/yelp-dataset), to to help businesses enhance future performance.  
 
 In general, we adpoted several pyspark scripts, to clean, gather, and process the dataset, and utilized various AWS services such as Redshift, S3 bucket to pick up designed results from queries. And one of the common BI software, SuperSet, was used to visualize the results. 
@@ -16,7 +14,7 @@ Finally, [one website](https://yelp-big-data-1n2acbksm-yhs2.vercel.app/landing.h
 
 # How to run
 
-All general packages related to big data such as the pyspark, pandas, numpy should be pre-installed. More detail could refer to 
+All general packages related to big data such as the pyspark, pandas, numpy should be pre-installed. More detail could refer to [running](.\RUNNING.txt)
 
 
 
