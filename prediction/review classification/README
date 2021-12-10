@@ -1,0 +1,9 @@
+Provided files:
+__settings__.py - sets common settings such as batch size and train/valid/test split.
+data_loader.py - contains code for reading in raw text dataset and converting to model-friendly format.
+models.py - contains custom pytorch models.
+plotting.py - provides utils for plotting losses over time.
+preprocessor.py - defines the preprocessor
+training.py - contains code for training a pytorch model.
+train_vector_classifier.py - runs a scikit-learn model on the dataset.
+train_pretrained_classifier.py - runs a pytorch model on the dataset, with embeddings read from a previously created file.
