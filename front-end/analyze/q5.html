@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Bootstrap Landing Page Website Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../style.css" rel="stylesheet" />
+    
+    </head>
+    <body>
+        <header>
+			<p class="h1" style="text-align: center;">   How attributes affect businesses’ stars / Prediction on stars
+            </p>
+            <hr>
+		</header>
+        
+        <div class="container">
+            <div class="row">
+                <figure class="col-sm-6 col-md-6 col-xs-12 align-self-center">
+                    <img src="../images/How attributes affect B(Noise).png" class="resize-image-text" alt="yelpIcon">
+                    <figcaption style="margin-top: 1rem;"><strong>Fig1.</strong></figcaption>
+                </figure>
+                <div class="col-sm-6 col-md-6 col-xs-12 text-left">
+                    <p class="lead">
+                       Fig.1 Demonstrates how noise level affect average review stars. It is obvious that enviroment of the business is important
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <figure class="col-sm-6 col-md-6 col-xs-12 align-self-center">
+                    <img src="../images/How attributes affect B(Has Wifi).png" class="resize-image-text" alt="yelpIcon" style="width: 100%; height: 100%;">
+                    <figcaption style="margin-top: 1rem;"><strong>Fig2.</strong></figcaption>
+                </figure>
+                <div class="col-sm-6 col-md-6 col-xs-12 text-left">
+                    
+                    <p class="lead">
+                        Fig.2 Demonstrates how noise Free wifi affect average review stars. Wifi is not a big factor when it comes to business rating.
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <figure class="col-sm-6 col-md-6 col-xs-12 align-self-center">
+                    <img src="../images/How attributes affect B(Dogs Allowed).png" class="resize-image-text" alt="yelpIcon" style="width: 100%; height: 100%;">
+                    <figcaption style="margin-top: 1rem;"><strong>Fig3.</strong></figcaption>
+                </figure>
+                <div class="col-sm-6 col-md-6 col-xs-12 text-left">
+                    
+                    <p class="lead">
+                        
+                        Fig.3 Demonstrates how allowance of pets affect average review stars. Of course, everyone loves pets, however it can also be an potential issue because
+                        Not all people love to have pets in the place where they eat food. 
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <figure class="col-sm-6 col-md-6 col-xs-12 align-self-center">
+                    <img src="../images/Use attribute to predict B 1.png" class="resize-image-text" alt="yelpIcon">
+                    <figcaption style="margin-top: 1rem;"><strong>Fig1.</strong></figcaption>
+                </figure>
+                <div class="col-sm-6 col-md-6 col-xs-12 text-left">
+                    <p class="lead">
+                        For predicting stars, we use attributes such as states, price range, and noise level to do prediction on stars. 
+                        As shown in the figure, there is correlation between true stars and predicted stars. We have a validation r2 score of 0.5, which is not a high score. However, it is a meaningful result, because we found that some features can affect the prediction in the right way. One main problem with the Yelp dataset is that lots of businesses do not have attributes such as wifi, noise level, which makes our prediction dataset small. 
+                        If these kinds of attributes can be filled up. We can collect more data and add more features, which can make our predictions much better.
+                    </p>
+                </div>
+            </div>
+        
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./js/landing.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
+    </body>
+</html>
+
+
+
+
