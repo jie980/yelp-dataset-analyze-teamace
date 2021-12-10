@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS business;
 CREATE TABLE business (
     business_id CHAR(22) PRIMARY KEY,
@@ -18,7 +17,7 @@ CREATE TABLE business (
 );
 
 COPY business FROM 's3://c732-hpa61-a5-haomingpan/ProjectYelp/business/'
-IAM_ROLE 'arn:aws:iam::996621308891:role/RedshiftS3Full'
+IAM_ROLE 'arn:aws:iam::[Your_IAM_id]:role/RedshiftS3Full'
 FORMAT JSON 'auto';
 
 DROP TABLE IF EXISTS users;
@@ -36,7 +35,7 @@ CREATE TABLE users (
     num_elite FLOAT
 );
 COPY users FROM 's3://c732-hpa61-a5-haomingpan/ProjectYelp/users/'
-IAM_ROLE 'arn:aws:iam::996621308891:role/RedshiftS3Full'
+IAM_ROLE 'arn:aws:iam::[Your_IAM_id]:role/RedshiftS3Full'
 FORMAT JSON 'auto';
 
 DROP TABLE IF EXISTS reviews;
@@ -52,7 +51,7 @@ CREATE TABLE reviews (
 );
 
 COPY reviews FROM 's3://c732-hpa61-a5-haomingpan/ProjectYelp/yelp_academic_dataset_review.json'
-IAM_ROLE 'arn:aws:iam::996621308891:role/RedshiftS3Full'
+IAM_ROLE 'arn:aws:iam::[Your_IAM_id]:role/RedshiftS3Full'
 FORMAT JSON 'auto';
 
 DROP TABLE IF EXISTS tips;
@@ -65,5 +64,5 @@ CREATE TABLE tips (
 );
 
 COPY tips FROM 's3://c732-hpa61-a5-haomingpan/ProjectYelp/yelp_academic_dataset_tip.json'
-IAM_ROLE 'arn:aws:iam::996621308891:role/RedshiftS3Full'
+IAM_ROLE 'arn:aws:iam::[Your_IAM_id]:role/RedshiftS3Full'
 FORMAT JSON 'auto';
