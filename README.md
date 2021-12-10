@@ -14,7 +14,7 @@ Finally, [one website](https://yelp-big-data-1n2acbksm-yhs2.vercel.app/landing.h
 
 # How to run
 
-All general packages related to big data such as the pyspark, pandas, numpy should be pre-installed. More detail could refer to [running](.\RUNNING.txt)
+All general packages related to big data such as the pyspark, pandas, numpy should be pre-installed. More detail could refer to [this](RUNNING.txt)
 
 
 
